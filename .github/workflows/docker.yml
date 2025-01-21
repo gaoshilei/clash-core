@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - version.go
+      - version.txt
       - Dockerfile
       - .github/workflows/docker.yml
 jobs:
@@ -19,7 +19,7 @@ jobs:
       - name: Extract Release Version
         id: release_version
         run: |
-          app_version=$(sed -ne "s/APP_VERSION\s=\s'v\(.*\)'/\1/p" version.go)
+          app_version=$(sed -ne "s/APP_VERSION\s=\s'v\(.*\)'/\1/p" version.txt)
           echo "app_version=$app_version" >> $GITHUB_ENV
 
       - name: Set Up QEMU
