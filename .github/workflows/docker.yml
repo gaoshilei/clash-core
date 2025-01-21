@@ -1,10 +1,11 @@
 name: Publish Docker Image
 on:
-  push:
-    branches:
-      - dev
-    tags:
-      - '*'
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: "Specify the branch to build (e.g., main or v1.0.0)"
+        required: true
+        default: "main"
 jobs:
 
   build:
